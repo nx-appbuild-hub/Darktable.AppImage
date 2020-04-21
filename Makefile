@@ -1,5 +1,5 @@
-SOURCE="https://github.com/darktable-org/darktable/releases/download/release-3.0.2/darktable-3.0.2.tar.xz"
-DESTINATION="darktable.deb"
+SOURCE="https://download.opensuse.org/repositories/graphics:/darktable/xUbuntu_18.04/amd64/darktable_3.0.1-1.1_amd64.deb"
+DESTINATION="build.deb"
 OUTPUT="darktable.AppImage"
 # libIlmImf-2_2.so.22
 
@@ -7,11 +7,11 @@ all:
 	echo "Building: $(OUTPUT)"
 	wget -O $(DESTINATION) -c $(SOURCE)
 
-	tar -xJvf $(DESTINATION)
-	# rm -rf AppDir/opt
-	#
-	# mkdir --parents AppDir/opt/application
-	# cp -r build/usr/share/darktable/* AppDir/opt/application
+	dpkg -x $(DESTINATION) build
+	rm -rf AppDir/opt
+
+	mkdir --parents AppDir/opt/application
+	cp -r build/usr/share/darktable/* AppDir/opt/application
 	#
 	# chmod +x AppDir/AppRun
 	#
