@@ -70,7 +70,6 @@ all: clean
 	cd $(PWD)/build && $(PWD)/build/Darktable.AppImage --appimage-extract
 
 	rm -rf $(PWD)/build/squashfs-root/AppRun
-	rm -rf $(PWD)/build/squashfs-root/lib/x86_64-linux-gnu | true
 
 	cp --force --recursive $(PWD)/build/usr/lib64/* $(PWD)/build/squashfs-root/usr/lib
 	cp --force --recursive $(PWD)/build/usr/bin/* $(PWD)/build/squashfs-root/usr/bin
