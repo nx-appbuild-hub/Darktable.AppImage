@@ -21,7 +21,7 @@ all: clean
 	wget --output-document=$(PWD)/build/Darktable.AppImage https://bintray.com/probono/AppImages/download_file?file_path=Darktable-2.2.5.glibc2.14-x86_64.AppImage
 	chmod +x $(PWD)/build/Darktable.AppImage
 
-	wget --output-document=$(PWD)/build/build.rpm http://mirror.centos.org/centos/8/AppStream/x86_64/os/Packages/gtk3-3.22.30-5.el8.x86_64.rpm
+	wget --output-document=$(PWD)/build/build.rpm http://mirror.centos.org/centos/8/AppStream/x86_64/os/Packages/gtk3-3.22.30-6.el8.x86_64.rpm
 	cd $(PWD)/build && rpm2cpio $(PWD)/build/build.rpm | cpio -idmv && cd ..
 
 	wget --output-document=$(PWD)/build/build.rpm https://ftp.lysator.liu.se/pub/opensuse/distribution/leap/15.2/repo/oss/x86_64/libatk-1_0-0-2.34.1-lp152.1.7.x86_64.rpm
@@ -36,7 +36,7 @@ all: clean
 	wget --output-document=$(PWD)/build/build.rpm http://mirror.centos.org/centos/8/AppStream/x86_64/os/Packages/cairo-1.15.12-3.el8.x86_64.rpm
 	cd $(PWD)/build && rpm2cpio $(PWD)/build/build.rpm | cpio -idmv && cd ..
 
-	wget --output-document=$(PWD)/build/build.rpm http://mirror.centos.org/centos/8/BaseOS/x86_64/os/Packages/libgcrypt-1.8.3-4.el8.x86_64.rpm
+	wget --output-document=$(PWD)/build/build.rpm http://mirror.centos.org/centos/8/BaseOS/x86_64/os/Packages/libgcrypt-1.8.5-4.el8.x86_64.rpm
 	cd $(PWD)/build && rpm2cpio $(PWD)/build/build.rpm | cpio -idmv && cd ..
 
 	wget --output-document=$(PWD)/build/build.rpm http://mirror.centos.org/centos/8/BaseOS/x86_64/os/Packages/bzip2-libs-1.0.6-26.el8.x86_64.rpm
@@ -48,7 +48,7 @@ all: clean
 	wget --output-document=$(PWD)/build/build.rpm http://mirror.centos.org/centos/8/AppStream/x86_64/os/Packages/libpng12-1.2.57-5.el8.x86_64.rpm
 	cd $(PWD)/build && rpm2cpio $(PWD)/build/build.rpm | cpio -idmv && cd ..
 
-	wget --output-document=$(PWD)/build/build.rpm http://mirror.centos.org/centos/8/BaseOS/x86_64/os/Packages/systemd-libs-239-31.el8_2.2.x86_64.rpm
+	wget --output-document=$(PWD)/build/build.rpm http://mirror.centos.org/centos/8/BaseOS/x86_64/os/Packages/systemd-libs-239-41.el8_3.x86_64.rpm
 	cd $(PWD)/build && rpm2cpio $(PWD)/build/build.rpm | cpio -idmv && cd ..
 
 	wget --output-document=$(PWD)/build/build.rpm http://mirror.centos.org/centos/8/AppStream/x86_64/os/Packages/OpenEXR-libs-2.2.0-11.el8.x86_64.rpm
@@ -70,7 +70,7 @@ all: clean
 	cd $(PWD)/build && $(PWD)/build/Darktable.AppImage --appimage-extract
 
 	rm -rf $(PWD)/build/squashfs-root/AppRun
-	# rm -rf $(PWD)/build/squashfs-root/lib/x86_64-linux-gnu
+	rm -rf $(PWD)/build/squashfs-root/lib/x86_64-linux-gnu | true
 
 	cp --force --recursive $(PWD)/build/usr/lib64/* $(PWD)/build/squashfs-root/usr/lib
 	cp --force --recursive $(PWD)/build/usr/bin/* $(PWD)/build/squashfs-root/usr/bin
