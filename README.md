@@ -8,3 +8,5 @@ libexiv2.so.14 => not found
 libGraphicsMagick-Q16.so.3 => not found
 libpugixml.so.1 => not found
 libcolord-gtk.so.1 => not found
+
+![example workflow](https://github.com/nx-appbuild-hub/Darktable.AppImage//actions/workflows/makefile.yml/badge.svg)
